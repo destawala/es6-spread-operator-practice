@@ -6,11 +6,15 @@ import React, { useState } from "react";
 //added to an array.
 //3. The <ul> should display all the array items as <li>
 function App() {
+  const [item, setItem] = useState("");
   const [itemList, setItemList] = useState([]);
 
+  function handleChange(event) {
+    setItem(event.target.value);
+  }
   function handleSubmit(event) {
     setItemList([...itemList, event.target.item.value]);
-
+    setItem("");
     event.preventDefault();
   }
 
@@ -21,7 +25,7 @@ function App() {
       </div>
       <div className="form">
         <form onSubmit={handleSubmit}>
-          <input name="item" type="text" />
+          <input name="item" type="text" onChange={handleChange} value={item} />
           <button>
             <span>Add</span>
           </button>
