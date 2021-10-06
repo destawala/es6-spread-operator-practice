@@ -31,7 +31,6 @@ function App() {
         <ul>
           {/* <li>A Item </li> */}
           {itemList.map((i, id) => {
-            console.log(i);
             return <li key={id}>{i}</li>;
           })}
         </ul>
